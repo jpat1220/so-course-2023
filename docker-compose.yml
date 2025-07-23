@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  cont1:
+    build: .
+    container_name: cont1
+    ports:
+      - "5001:5000"
+    volumes:
+      - shared_public:/sync_files/public
+      - cont1_private:/sync_files/private
+
+  cont2:
+    build: .
+    container_name: cont2
+    ports:
+      - "5002:5000"
+    volumes:
+      - shared_public:/sync_files/public
+      - cont2_private:/sync_files/private
+
+  cont3:
+    build: .
+    container_name: cont3
+    ports:
+      - "5003:5000"
+    volumes:
+      - shared_public:/sync_files/public
+      - cont3_private:/sync_files/private
+
+volumes:
+  shared_public:
+  cont1_private:
+  cont2_private:
+  cont3_private:
